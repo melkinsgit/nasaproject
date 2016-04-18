@@ -2,27 +2,27 @@ extends layout
 
 block content
 
-  h1=title
+	h1=title
 
-  if media_type=='image'
-    img(src='#{url}')
+	if media_type=='image'
+		img(src='#{url}')
 
-  else
-    i.a(href='#{url}') Today's picture is a video or other media. Click here to view.
+	else
+		i.a(href='#{url}') Today's picture is a video or other media. Click here to view.
 
-  p.credit #{credit}
-  p.description= explanation
-  p.date This is NASA's Astronomy Picture of the day for #{date}.
+	p.credit #{credit}
+	p.description= explanation
+	p.date This is NASA's Astronomy Picture of the day for #{date}.
 
-  p
-    a(href ="#{apodurl}") See this image at NASA's site
+	p
+		a(href ="#{apodurl}") See this image at NASA's site
 
-  form.add_to_favorites(method="post" action="favorites/add")
-    input(type='hidden' name="date" value='#{date}')
-    input(type='hidden' name="title" value='#{title}')
-    input(type='hidden' name="url" value='#{url}')
-    input(type='hidden' name="apodurl" value='#{apodurl}')
+	form.add_to_favorites(method="post" action="favorites/add")
+		input(type='hidden' name="date" value='#{date}')
+		input(type='hidden' name="title" value='#{title}')
+		input(type='hidden' name="url" value='#{url}')
+		input(type='hidden' name="apodurl" value='#{apodurl}')
 
-    input.btn.btn-success.btn-lg#addToFavorites(name='favorites' value="Add to favorites" type='submit')
+		input.btn.btn-success.btn-lg#addToFavorites(name='favorites' value="Add to favorites" type='submit')
 
-  include buttons.jade
+	include buttons.jade

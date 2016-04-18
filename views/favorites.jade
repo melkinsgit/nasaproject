@@ -2,18 +2,18 @@ extends layout
 
 block content
 
-  h1 Favorites
+	h1 Favorites
 
-  if favorites.length != 0
-    each fav in favorites
+	if favorites.length != 0
+		each fav in favorites
 
-      .favitem
-        a(href="#{fav.apodurl}")
-          img.favimage(src="#{fav.url}")
-        p.favtitle #{fav.title}
-        p.favdate #{fav.date}
+			.favitem
+				a(href="#{fav.apodurl}")
+					img.favimage(src="#{fav.url}")
+				p.favtitle #{fav.title}
+				p.favdate #{fav.date}
 
-  else
-    p No favorites saved yet.
+	else
+		p No favorites saved yet.
 
   include buttons

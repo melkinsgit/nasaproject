@@ -1,10 +1,16 @@
-// Nasa Project app.json
+// Nasa Project app.json astropix with security app js
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+// new requires
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var favorites = require('./routes/favorites');
@@ -14,6 +20,25 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// add this for passport
+app.use(session({
+	secret: '098374019283741029387410923'
+}));
+
+require('./config/passport')(passport);
+// passport.js module.export exports a function
+// that expects to a passport object as an arguments
+// this require statement calls the function with the
+// passport object required in line 11
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+// DB
+var url = 'mongodb://localhost:27017/nasaFavorites';
+mongoose.connect(url);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

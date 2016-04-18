@@ -8,10 +8,16 @@ router.get('/', function(req, res, next) {
 
   //var fav_list = {favorites : [ {'url':'a.com', 'title':'boop', 'date':'123'} ] };
 
-  if (req.session.fav_list === undefined) {
-    req.session.fav_list = { favorites : [] }
-  }
+  /* No longer needed because we are using DB */
+  // if (req.session.fav_list === undefined) {
+    // req.session.fav_list = { favorites : [] }
+  // }
 
+  Favorite.find(function(err, favoriteDocs){
+	if (err) { return next(err); }
+	return res.render('favorites', { favorites: favoriteDocs, error: req.flash('error') });
+  });
+  
   console.log("fav list is " + req.session.fav_list);
   res.render('favorites', req.session.fav_list);  // gives favorites a list of favorites in json data
 });
