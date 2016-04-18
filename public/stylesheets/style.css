@@ -12,3 +12,31 @@ p {
 a {
   color: darkblue;
 }
+
+form {
+  padding:10px 0 10px 0
+}
+
+/* Display image, title and date as inline,
+all on one line */
+
+.favimage {
+  width : 200px;  /* Height will scale */
+  display: inline;
+  border: 2px solid;
+}
+
+.favtitle {
+  display: inline;
+  padding: 20px
+}
+
+.favdate {
+  display: inline;
+  padding: 20px
+}
+
+/* Add spacing between the favorites */
+.favitem {
+  padding: 20px 0 20px 0
+}

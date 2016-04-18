@@ -15,7 +15,7 @@ router.get('/', function(req, res){
 
 
 /* GET A picture from APOD service */
-router.get('/fetch_picture', function fetch_picture(req, res) {
+router.get('/fetch_picture', function(req, res) {
 
   if (req.query["today"] ) {
     apodRequest(res, true);  //true = today's picture
@@ -30,6 +30,10 @@ router.get('/fetch_picture', function fetch_picture(req, res) {
   }
 });
 
+router.get('/favorites', function (req, res){
+  res.render('favorites');
+});
+
 
 // Makes requests to NASA's APOD service using requestjs.
 // A callback checks for errors and then calls a method to
@@ -38,7 +42,6 @@ function apodRequest(res, today) {
 
   var queryParam = {};
   var APIKEY = process.env.APOD_API_KEY;
-  console.log('the log is ' + APIKEY);
 
   if (today) {
     queryParam = { 'api_key' : APIKEY };
