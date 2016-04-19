@@ -58,6 +58,11 @@ router.post('/login', passport.authenticate('local-login', {
 	failureFlash: true
 }));
 
+// Get astropix page from secret
+router.get('/goToAstropix', function (req, res, next) {
+	res.render('astropix');
+} );
+
 /* GET Logout */
 router.get('/logout', function(req, res, next) {
   req.logout();         //passport middleware adds these functions to req.
@@ -72,11 +77,14 @@ router.post('/saveSecretInfo', isLoggedIn, function(req, res, next){
 
   var newData = {};
 
-  if (req.body.favoriteColor != '') {
-     newData.favoriteColor = req.body.favoriteColor;
+  if (req.body.fathersMiddle != '') {
+     newData.fathersMiddle = req.body.fathersMiddle;
   }
-  if (req.body.luckyNumber != '') {
-    newData.luckyNumber = req.body.luckyNumber;
+  if (req.body.mothersMiddle != '') {
+     newData.mothersMiddle = req.body.mothersMiddle;
+  }
+  if (req.body.favNum != '') {
+    newData.favNum = req.body.favNum;
   }
 
   //Update our user with the new data.
@@ -121,10 +129,6 @@ router.get('/fetch_picture', function(req, res) {
   else {
     res.sendStatus(404)
   }
-});
-
-router.get('/favorites', function (req, res){
-  res.render('favorites');
 });
 
 
