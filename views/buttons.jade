@@ -1,10 +1,13 @@
 block buttons
 
-  .buttons
+	.buttons
 
-    form.get_pictures(method="get" action="fetch_picture")
-      input.btn.btn-info.btn-lg.btn-block#today(name='today' value="Today's Picture" type='submit')
-      input.btn.btn-info.btn-lg.btn-block#random(name='random' value="Random Picture" type='submit')
+		form.get_pictures(method="get" action="fetch_picture")
+			input.btn.btn-info.btn-lg.btn-block#today(name='today' value="Today's Picture" type='submit')
+			input.btn.btn-info.btn-lg.btn-block#random(name='random' value="Random Picture" type='submit')
 
-    form.get_favorites(method="get" action="favorites")
-      input.btn.btn-primary.btn-lg.btn-block#favorites(name='favorites' value="Favorite Pictures" type='submit')
+		form.get_favorites(method="get" action="favorites")
+			input.btn.btn-primary.btn-lg.btn-block#favorites(name='favorites' value="Favorite Pictures" type='submit')
+			
+		form(method="get" action="otherFavorites")
+			input(type="submit" value="working")

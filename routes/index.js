@@ -28,7 +28,6 @@ router.get('/secret', isLoggedIn, function(req, res, next) {
 	res.render('secret', {user: req.user, updateMessage: req.flash('updateMsg')});
 } );
 
-
 /* Middleware function. If user is logged in, call next - this calls the next
 middleware (if any) to continue chain of request processing. Typically, this will
 end up with the route handler that uses this middleware being called,

@@ -19,18 +19,17 @@ router.get('/', function(req, res, next) {
 router.post('/add', function(req, res, next){
 	
 	var newFavorite = Favorite(req.body);  // JSON object of the user input data; calling Favorite constructor
-	
-	Favorite.find({_id:newFavorite._id}, function (err, foundFave){
+	console.log(newFavorite);
+	Favorite.find({url:newFavorite.url}, function (err, foundFave){
 		if(foundFave.length == 0){
 			console.log(foundFave);
 			console.log("wasn't found");
-			console.log("the title is " + foundFave.title);
-			console.log("the url is " + foundFave.url);
-			console.log("the date is " + foundFave.date);
 			newFavorite.save(function (err, savedFave) {
 				if (err) {
 					return next(err);
 					}
+				console.log("favorite saved");
+				console.log(savedFave);
 				res.status (201);
 				res.redirect('/favorites');  //favorites page ABSOLUTE
 			});

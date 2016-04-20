@@ -14,6 +14,7 @@ var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var favorites = require('./routes/favorites');
+var otherFavorites = require('./routes/otherFavorites');
 
 var app = express();
 
@@ -50,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/favorites', favorites);
+// app.use('/otherFavorites', otherFavorites);
 // app.use('/users', users);
 
 // catch 404 and forward to error handler
