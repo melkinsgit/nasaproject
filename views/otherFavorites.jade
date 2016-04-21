@@ -1,8 +1,9 @@
+// other Favorites jade
 extends layout
 
 block content
 
-	h1 OTHER Favorites
+	h1 OTHER FAVORITES
 
 	if favorites.length != 0
 		each fav in favorites
@@ -12,12 +13,6 @@ block content
 					img.favimage(src="#{fav.url}")
 				p.favtitle #{fav.title}
 				p.favdate #{fav.date}
-				//If user authenticated locally...
-				//if user.local.username
-				p
-					form(action='favorites/deleteFave' method='post')
-						input(name='title' value="#{fav.title}" type="hidden")
-						input.btn.btn-danger.btn-lg(type='submit' value='Delete')
 
 	else
 		p No favorites saved yet.

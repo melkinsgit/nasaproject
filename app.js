@@ -51,8 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/favorites', favorites);
-// app.use('/otherFavorites', otherFavorites);
-// app.use('/users', users);
+app.use('/otherFavorites', otherFavorites);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
