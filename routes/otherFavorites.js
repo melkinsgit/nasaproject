@@ -14,4 +14,4 @@ router.get('/showOtherUserFavorites', function(req, res, next) {
 	res.redirect('/otherFavorites');
 });
 
-module.export = router;
+module.exports = router;
